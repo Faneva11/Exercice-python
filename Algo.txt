@@ -1,0 +1,46 @@
+fonction afficher_table_verite(fonction_logique):
+    variables = extraire_variables(fonction_logique)
+    nb_variables = taille(variables)
+    nb_lignes = 2 ** nb_variables
+    
+    # Affichage de l'en-tête
+    en_tete = ""
+    pour chaque variable dans variables:
+        en_tete += variable + " | "
+    en_tete += fonction_logique
+    afficher(en_tete)
+    
+    # Affichage des lignes de la table de vérité
+    pour i de 0 à nb_lignes - 1:
+        ligne = ""
+        valeurs_variables = convertir_decimal_vers_binaire(i, nb_variables)
+        pour chaque valeur dans valeurs_variables:
+            ligne += valeur + " | "
+        resultat = evaluer_fonction(fonction_logique, valeurs_variables)
+        ligne += resultat
+        afficher(ligne)
+
+fonction extraire_variables(fonction_logique):
+    # Implémentation de l'extraction des variables de la fonction logique
+    retourner variables
+
+fonction convertir_decimal_vers_binaire(nombre, nb_bits):
+    # Implémentation de la conversion d'un nombre décimal en binaire sur nb_bits
+    retourner valeurs_binaires
+
+fonction evaluer_fonction(fonction_logique, valeurs_variables):
+    # Implémentation de l'évaluation de la fonction logique avec les valeurs des variables
+    retourner resultat
+
+fonction afficher_formes_canoniques(fonction_logique):
+    # Implémentation pour afficher les formes canoniques de la fonction logique
+    premiere_forme_canonique = calculer_premiere_forme_canonique(fonction_logique)
+    deuxieme_forme_canonique = calculer_deuxieme_forme_canonique(fonction_logique)
+    
+    afficher("Première forme canonique : " + premiere_forme_canonique)
+    afficher("Deuxième forme canonique : " + deuxieme_forme_canonique)
+
+# Exemple d'utilisation
+fonction_logique = "A AND (B OR NOT C)"
+afficher_table_verite(fonction_logique)
+afficher_formes_canoniques(fonction_logique)
